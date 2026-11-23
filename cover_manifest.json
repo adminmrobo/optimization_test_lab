@@ -3,7 +3,30 @@
   "title_ko": "최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습",
   "site_title": "최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습",
   "site_url": "https://adminmrobo.github.io/optimization_test_lab/",
-  "covers": [{"page": "index.html", "id": "cover_01", "status": "placeholder-canvas", "prompt": "COVER_PROMPTS_optimization_test_lab.md#cover_01"}],
-  "ontology": {"pages": [{"path": "index.html", "kg": true, "export": true}]},
-  "languages": ["ko"]
+  "covers": [
+    {
+      "page": "index.html",
+      "id": "cover_01",
+      "status": "done",
+      "method": "build/make_cover.py (코드로 그린 16비트 픽셀풍, 480×270 → ×4 NEAREST 무손실 WebP)",
+      "files": [
+        "img/cover_01.webp",
+        "img/cover_01_960.webp",
+        "img/og_cover.png"
+      ],
+      "prompt_for_regeneration": "COVER_PROMPTS_optimization_test_lab.md#cover_01"
+    }
+  ],
+  "ontology": {
+    "pages": [
+      {
+        "path": "index.html",
+        "kg": true,
+        "export": true
+      }
+    ]
+  },
+  "languages": [
+    "ko"
+  ]
 }

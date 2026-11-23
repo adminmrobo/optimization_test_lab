@@ -24,7 +24,8 @@
 
 - 사용자 제공 영상 2편: Infinity Academy 「Four Meanings of Differentiation」(인포그래픽), 「Optimizer Battle — curved valley · adaptive vs. momentum vs. vanilla」(애니메이션). 원 게시물 주소·게시일은 받지 못해 "미확인"으로 적었습니다. **원본 영상·이미지는 이 저장소에 넣지 않았고**, 곡선·지형·그래프는 모두 새로 그렸습니다.
 - 영상 2의 70 · 119 · 281걸음과 이 페이지의 숫자가 다른 이유: 영상의 지형·보폭·도착 기준을 알 수 없어 새로 정했습니다. 순위의 모양만 같습니다.
-- 논문: Kingma·Ba (2015) Adam, Polyak (1964) 모멘텀.
+- 논문: Kingma·Ba (2015) Adam, Polyak (1964) 모멘텀, Choi 외 (2019) 걸음법 비교의 설정 민감도.
+- 두 영상의 원 게시물은 2026-11-23 웹 검색으로도 찾지 못했습니다. 링크를 알게 되면 출처 [1]·[2]와 build/kg_defs.py를 고칩니다.
 - 캐릭터 이름·설정·그림은 저작권자 안상선의 허락 없이 사용할 수 없습니다. 그림은 [fruitfly-lab-expressions](https://github.com/adminmrobo/fruitfly-lab-expressions) 캐릭터 팩에서 가져왔습니다.
 
 ## 폴더
@@ -32,13 +33,14 @@
 ```
 .
 ├─ index.html                 완성 페이지 (build/에서 만듦, 단일 파일 · 외부 요청은 글꼴 하나)
-├─ img/og_cover.png           공유 미리보기 (그림판 표지를 찍은 것)
+├─ img/                       픽셀 표지 cover_01(1920×1080·960, 원래 격자 480×270)과 공유 미리보기 og_cover(960×504)
 ├─ build/
 │  ├─ p0.src.html · page.js   페이지 원본과 페이지 스크립트(대사·연습·연습장·대결·퀴즈)
 │  ├─ optmath.js              계산 모듈: 연습 곡선 x³ − 3x + 3, 지형 3개, 세 걸음법
 │  ├─ common.css · common.js  공용 디자인·모듈 (optimization_3d_map에서 가져와 캐릭터 기본값만 바꿈)
 │  ├─ kgx.js · backbone.json  지식 색인·꾸러미 모듈과 AI 영역 뼈대
 │  ├─ kg_defs.py              지식 그래프·참고문헌·서지 → kg_0 / refs_0 / meta_0.json
+│  ├─ make_cover.py           픽셀 표지 그리기 (python3 build/make_cover.py <캐릭터 팩 경로>)
 │  ├─ make_sprites.py         캐릭터 팩에서 표정 58장을 골라 sprites96.js로
 │  └─ build.js                조립: node build/build.js
 ├─ code/

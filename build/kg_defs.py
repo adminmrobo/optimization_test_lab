@@ -54,14 +54,16 @@ refs=[
   "lab":{"work":"lab:work/kingma2015adam","role":"source","supports":["lab:method/adam"],"locs":[],"verified":{"title":True,"author":True,"year":True,"url":True},"checkedBy":"서지 정보 확인"}},
  {"id":"polyak1964","type":"article-journal","title":"Some methods of speeding up the convergence of iteration methods","author":[{"family":"Polyak","given":"Boris T."}],"issued":{"date-parts":[[1964]]},"container-title":"USSR Computational Mathematics and Mathematical Physics","volume":"4","issue":"5","page":"1-17","DOI":"10.1016/0041-5553(64)90137-5",
   "lab":{"work":"lab:work/polyak1964","role":"source","supports":["lab:method/momentum-sgd"],"locs":[],"verified":{"title":True,"author":True,"year":True,"url":False},"checkedBy":"서지 정보 확인"}},
+ {"id":"choi2019empirical","type":"article","title":"On Empirical Comparisons of Optimizers for Deep Learning","author":[{"family":"Choi","given":"Dami"},{"family":"Shallue","given":"Christopher J."},{"family":"Nado","given":"Zachary"},{"family":"Lee","given":"Jaehoon"},{"family":"Maddison","given":"Chris J."},{"family":"Dahl","given":"George E."}],"issued":{"date-parts":[[2019]]},"URL":"https://arxiv.org/abs/1910.05446",
+  "lab":{"work":"lab:work/choi2019empirical","role":"source","supports":["lab:limitation/ranking-depends-on-terrain"],"locs":[],"verified":{"title":True,"author":True,"year":True,"url":True},"checkedBy":"arXiv 초록 확인 (2026-11-23)","note":"설정을 충분히 조정하면 적응형 걸음법이 모멘텀·SGD보다 뒤지지 않으며, 비교 결과가 조정 방식에 민감함"}},
  {"id":"ahn_optimization_3d_map","type":"webpage","title":"좌표축 위의 그릇 — 3D 지도로 본 모델 최적화","author":[{"family":"안","given":"상선"}],"issued":{"date-parts":[[2026]]},"URL":"https://adminmrobo.github.io/optimization_3d_map/","accessed":{"date-parts":[[2026,11,23]]},
   "lab":{"work":"lab:work/ahn_optimization_3d_map","role":"background","supports":["lab:method/gradient-descent"],"locs":[],"verified":{"title":True,"author":True,"year":True,"url":True},"checkedBy":"저자 본인 시리즈"}},
 ]
 meta={"title":"최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습","series":"최적화 연습실","number":"1","creator":[{"name":"안상선","role":"author","affiliation":"(주)M-Robo"}],"contributor":[{"name":"AI 보조 제작","role":"assistant"}],
- "date":"2026-11-23","version":"1.1","language":["ko"],"license":"","url":"https://adminmrobo.github.io/optimization_test_lab/",
+ "date":"2026-11-23","version":"1.2","language":["ko"],"license":"","url":"https://adminmrobo.github.io/optimization_test_lab/",
  "about":["lab:concept/tangent-slope","lab:method/gradient-descent","lab:method/adam","lab:limitation/ranking-depends-on-terrain"],
- "basedOn":["infinity_four_meanings","optimizer_battle_video","kingma2015adam","polyak1964"],"educationalLevel":"입문","learningResourceType":"interactive explainer","registry":"KG_00_registry 0.2",
- "suggestedCitation":"안상선 (2026). 최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습. v1.1."}
+ "basedOn":["infinity_four_meanings","optimizer_battle_video","kingma2015adam","polyak1964","choi2019empirical"],"educationalLevel":"입문","learningResourceType":"interactive explainer","registry":"KG_00_registry 0.2",
+ "suggestedCitation":"안상선 (2026). 최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습. v1.2."}
 for n,o in (('kg_0.json',kg),('refs_0.json',refs),('meta_0.json',meta)):
     json.dump(o,open(os.path.join(B,n),'w'),ensure_ascii=False,indent=1)
 print(len(nodes),'nodes',len(edges),'edges')

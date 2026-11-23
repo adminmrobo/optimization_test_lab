@@ -10,6 +10,7 @@
 <meta property="og:description" content="미분 네 가지 뜻에서 출발해 SGD·모멘텀·Adam 경주와 순위 뒤집기 미션까지. 글 · 안상선">
 <meta property="og:url" content="https://adminmrobo.github.io/optimization_test_lab/">
 <meta property="og:image" content="https://adminmrobo.github.io/optimization_test_lab/img/og_cover.png">
+<meta property="og:image:width" content="960"><meta property="og:image:height" content="504">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -50,8 +51,7 @@
 .say6 .say{max-width:none;margin:6px 0}
 .wrapup{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--terrain);border-radius:10px;padding:14px 18px;margin:14px 0;font-size:15px}
 .wrapup b:first-child{color:var(--terrain)}
-.cover .cap{font-weight:700;color:var(--text)}
-.cover .cast4 img.s{width:10%}
+.cover img.art{image-rendering:pixelated;object-position:50% 50%}
 .backlinks{font-size:14px;color:var(--muted);margin:8px 0 0}
 .steptbl td,.steptbl th{text-align:right!important;font-variant-numeric:tabular-nums}
 .steptbl td:first-child,.steptbl th:first-child{text-align:left!important}
@@ -65,13 +65,12 @@
   </div>
 </div></nav>
 
-<!-- lab-cover : 픽셀 표지(cover_01)를 받기 전까지 그림판 표지 -->
+<!-- lab-cover : 픽셀 표지 cover_01 (build/make_cover.py, 원래 격자 480×270 → ×4 무손실) -->
 <div class="cover" id="cover" data-img="cover_01"><div class="frame">
-  <canvas id="coverCv" aria-hidden="true"></canvas>
-  <span class="cap">밤 11시, 불 켜진 연습실</span>
-  <div class="cast4" aria-hidden="true">
-    <img class="s" data-mood="sia_e04" alt=""><img data-mood="x1_e16" alt=""><img data-mood="x2_e09" alt=""><img data-mood="x3_e01" alt=""><img class="s" data-mood="moa_e24" alt=""><img class="s" data-mood="asst_e19" alt="">
-  </div>
+  <picture>
+    <source type="image/webp" srcset="img/cover_01_960.webp 960w, img/cover_01.webp 1920w" sizes="(max-width:1080px) 100vw, 1080px">
+    <img class="art" src="img/cover_01.webp" width="1920" height="1080" alt="밤의 연구실 화이트보드에 휘어진 골짜기와 세 가지 색 경주 경로가 그려져 있고, 그 앞에 실루엣으로 된 미공개 X1(리본)·X2(모자)·X3(꼬마)가 서 있다. 오른쪽 문틈에서 시아·모아·하루가 놀라 들여다보고, 왼쪽 아래에서 박사·주판봇·초파리 연구원이 응원한다" fetchpriority="high" decoding="async" style="image-rendering:pixelated">
+  </picture>
   <span class="cover-chip">최적화 연습실 · 미공개 X1·X2·X3의 몰래 연습</span>
 </div></div>
 <!-- /lab-cover -->
@@ -81,7 +80,7 @@
   <h1>최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습</h1>
   <p class="question">미분의 네 가지 뜻을 알면, "진짜" 최적화의 경주도 읽을 수 있을까?</p>
   <p class="lead">밤마다 연구실 불을 켜 두고 누군가 연습을 하고 있었습니다. 정체를 숨긴 신입 X1·X2·X3입니다. 이 페이지는 세 사람이 몰래 해 온 연습을 그대로 따라 합니다. ① 기울기 ② 변화율 ③ 기울기 0 ④ 작은 증분 — 미분의 네 가지 뜻을 곡선 하나로 확인하고, 그 규칙으로 움직이는 세 걸음법(바닐라 SGD · 모멘텀 · Adam)을 휘어진 골짜기에서 경주시킵니다. 마지막에는 여러분이 직접 보폭과 지형을 바꿔 순위를 뒤집어 봅니다.</p>
-  <p class="byline">글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-23 · v1.1</p>
+  <p class="byline">글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-23 · v1.2</p>
   <div class="start"><b>처음이라면</b> 연습 1 → 2 → 3 → 4 → 경주 → 실전 연습장 순서로 보세요. 식이 나오는 곳마다 조수 하루가 대신 묻고, 작은 숫자로 한 번 계산해 봅니다. 미분이 아주 처음이면 <a href="https://adminmrobo.github.io/optimization_3d_map/first_step_1.html">최적화 첫걸음 ①</a>을 먼저 봐도 좋습니다.</div>
   <div class="kpis" aria-label="숫자 요약">
     <div class="kpi m"><b>6개</b><span>연습 (미분 네 뜻 + 경주 + 실전 연습장)</span></div>
@@ -441,6 +440,7 @@ torch.optim.Adam(params, lr=0.15)                # X3 Adam: 보폭 0.15</pre>
   <ul>
     <li>여기서는 기울기를 정확히 계산했습니다. 실제 SGD는 데이터 일부(미니배치)로 기울기를 재서 걸음마다 흔들립니다 → <a href="https://adminmrobo.github.io/optimization_3d_map/2_experiment_lab.html">그릇 2편 배치 크기</a>.</li>
     <li>골짜기는 축이 둘이라 그림으로 그릴 수 있었습니다. 실제 모델은 축이 수천~수천억 개라 그림은 없지만 걸음 규칙은 같습니다.</li>
+    <li>이 페이지의 대결은 세 지형 모두 "기본 설정 그대로" 비교했습니다. 연구에서는 걸음법마다 설정을 충분히 조정한 뒤 비교하는데, 그렇게 하면 Adam 같은 적응형 걸음법이 모멘텀·SGD보다 뒤지지 않았고, 조정 방식만 바꿔도 순위가 쉽게 바뀌었다는 보고가 있습니다[6]. 순위는 지형과 보폭뿐 아니라 "어떻게 비교했나"에도 달려 있습니다.</li>
     <li>"걸음 수"만으로 걸음법을 비교했습니다. 실무에서는 걸음 하나의 계산 비용, 메모리, 검증 성능을 함께 봅니다.</li>
   </ul>
   <div class="next"><a href="https://adminmrobo.github.io/optimization_3d_map/first_step_2.html"><b>최적화 첫걸음 ②</b><br>경사하강과 역전파를 공장 이야기로</a><a href="https://adminmrobo.github.io/optimization_3d_map/1_math_map.html"><b>그릇 1편 수학 편</b><br>헤시안·보폭 한계·안장점</a><a href="https://adminmrobo.github.io/optimization_3d_map/2_experiment_lab.html"><b>그릇 2편 실험실 편</b><br>배치 크기·학습률 한계·과적합</a></div>
@@ -455,10 +455,11 @@ torch.optim.Adam(params, lr=0.15)                # X3 Adam: 보폭 0.15</pre>
 <footer><div class="wrap">
   <h3>출처</h3>
   <table><thead><tr><th>#</th><th>자료</th><th>이 페이지에서 쓴 곳</th></tr></thead><tbody>
-    <tr><td>[1]</td><td>Infinity Academy, 인포그래픽 영상 「Four Meanings of Differentiation」 (사용자 제공 영상 8.6초, 2026-11-23 확인. 원 게시물 주소·게시일 미확인)</td><td>연습 1~4 — 네 가지 뜻(기울기·변화율·정지점·작은 증분 근사)의 순서와 그림 아이디어만 참고. 그림과 예시 곡선은 새로 만듦</td></tr>
-    <tr><td>[2]</td><td>작성자 미확인, 애니메이션 영상 「Optimizer Battle — curved valley · adaptive vs. momentum vs. vanilla」 (사용자 제공 영상 18.1초, 2026-11-23 확인. 원 게시물 주소·게시일 미확인)</td><td>연습 5·6, 대결 — 휘어진 골짜기에서 세 걸음법을 나란히 경주시키는 아이디어와 Adam 갱신식 표기. 지형·설정·걸음 수는 새로 계산</td></tr>
+    <tr><td>[1]</td><td>Infinity Academy, 인포그래픽 영상 「Four Meanings of Differentiation」 (사용자 제공 영상 8.6초, 2026-11-23 확인. 원 게시물 주소·게시일 미확인 — 같은 날 웹 검색으로도 찾지 못함)</td><td>연습 1~4 — 네 가지 뜻(기울기·변화율·정지점·작은 증분 근사)의 순서와 그림 아이디어만 참고. 그림과 예시 곡선은 새로 만듦</td></tr>
+    <tr><td>[2]</td><td>작성자 미확인, 애니메이션 영상 「Optimizer Battle — curved valley · adaptive vs. momentum vs. vanilla」 (사용자 제공 영상 18.1초, 2026-11-23 확인. 작성자·원 게시물 주소·게시일 미확인 — 같은 날 웹 검색으로도 찾지 못함)</td><td>연습 5·6, 대결 — 휘어진 골짜기에서 세 걸음법을 나란히 경주시키는 아이디어와 Adam 갱신식 표기. 지형·설정·걸음 수는 새로 계산</td></tr>
     <tr><td>[3]</td><td>Kingma, D. P., &amp; Ba, J. (2015). Adam: A Method for Stochastic Optimization. ICLR 2015. arXiv:1412.6980</td><td>Adam의 식(β₁ 0.9, β₂ 0.999, 치우침 보정)</td></tr>
     <tr><td>[4]</td><td>Polyak, B. T. (1964). Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5), 1–17</td><td>모멘텀(관성) 방법</td></tr>
+    <tr><td>[6]</td><td>Choi, D., Shallue, C. J., Nado, Z., Lee, J., Maddison, C. J., &amp; Dahl, G. E. (2019). On Empirical Comparisons of Optimizers for Deep Learning. arXiv:1910.05446</td><td>정리 "비유의 한계" — 걸음법 비교가 설정 조정 방식에 민감하다는 점</td></tr>
     <tr><td>[5]</td><td>안상선, 「좌표축 위의 그릇 — 3D 지도로 본 모델 최적화」·「최적화 첫걸음」 (optimization_3d_map, 2026)</td><td>앞뒤 편 연결, 공용 디자인·모듈</td></tr>
   </tbody></table>
   <h3>예시값·설명용 모형인 것</h3>

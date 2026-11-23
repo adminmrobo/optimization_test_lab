@@ -110,7 +110,7 @@ function terrain(cv,key,runs,upto,opt){opt=opt||{};var R=U.setup(cv),g=R.g,w=R.w
   if(opt.stamp!==false)U.stamp(g,w,'설명용 예시');}
 
 /* 표지 그림판 */
-V($('#coverCv'),function(){terrain($('#coverCv'),'valley',RV,null,{lw:3,dot:7,stamp:false});});
+
 
 /* ── 연습 1: 접선 ── */
 var x1v=2;

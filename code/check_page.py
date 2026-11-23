@@ -21,9 +21,6 @@ async def main():
             ok=sw<=W and not errs and emp==0 and pre==0 and r==[1,1,1] and kg
             bad+=0 if ok else 1
             print(('OK  ' if ok else 'FAIL'),W,'px · 가로',sw,'· 오류',errs[:3],'· 빈 그림',emp,'· 조작 전 통과',pre,'· 미션',r,'· 지식 색인',kg)
-            if W==1280:
-                el=await pg.query_selector('#cover');await pg.set_viewport_size({'width':1240,'height':900});await pg.wait_for_timeout(300)
-                await el.screenshot(path=os.path.join(ROOT,'img','og_cover.png'))
         await b.close()
     sys.exit(1 if bad else 0)
 asyncio.run(main())

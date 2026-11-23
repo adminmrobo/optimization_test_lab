@@ -150,6 +150,61 @@
   }
  },
  {
+  "id": "choi2019empirical",
+  "type": "article",
+  "title": "On Empirical Comparisons of Optimizers for Deep Learning",
+  "author": [
+   {
+    "family": "Choi",
+    "given": "Dami"
+   },
+   {
+    "family": "Shallue",
+    "given": "Christopher J."
+   },
+   {
+    "family": "Nado",
+    "given": "Zachary"
+   },
+   {
+    "family": "Lee",
+    "given": "Jaehoon"
+   },
+   {
+    "family": "Maddison",
+    "given": "Chris J."
+   },
+   {
+    "family": "Dahl",
+    "given": "George E."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  },
+  "URL": "https://arxiv.org/abs/1910.05446",
+  "lab": {
+   "work": "lab:work/choi2019empirical",
+   "role": "source",
+   "supports": [
+    "lab:limitation/ranking-depends-on-terrain"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "url": true
+   },
+   "checkedBy": "arXiv 초록 확인 (2026-11-23)",
+   "note": "설정을 충분히 조정하면 적응형 걸음법이 모멘텀·SGD보다 뒤지지 않으며, 비교 결과가 조정 방식에 민감함"
+  }
+ },
+ {
   "id": "ahn_optimization_3d_map",
   "type": "webpage",
   "title": "좌표축 위의 그릇 — 3D 지도로 본 모델 최적화",
