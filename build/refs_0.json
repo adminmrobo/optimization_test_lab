@@ -1,0 +1,195 @@
+[
+ {
+  "id": "infinity_four_meanings",
+  "type": "graphic",
+  "title": "Four Meanings of Differentiation",
+  "author": [
+   {
+    "literal": "Infinity Academy"
+   }
+  ],
+  "accessed": {
+   "date-parts": [
+    [
+     2026,
+     11,
+     23
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/infinity_four_meanings",
+   "role": "background",
+   "supports": [
+    "lab:concept/tangent-slope",
+    "lab:concept/rate-of-change",
+    "lab:concept/stationary-point",
+    "lab:concept/small-increment-approximation"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": false,
+    "url": false
+   },
+   "checkedBy": "사용자 제공 영상에서 옮김. 원 게시물 주소·게시일은 받지 못함",
+   "note": "네 가지 뜻의 순서와 그림 아이디어만 참고, 그림은 새로 그림"
+  }
+ },
+ {
+  "id": "optimizer_battle_video",
+  "type": "motion_picture",
+  "title": "Optimizer Battle — curved valley · adaptive vs. momentum vs. vanilla",
+  "author": [
+   {
+    "literal": "작성자 미확인"
+   }
+  ],
+  "accessed": {
+   "date-parts": [
+    [
+     2026,
+     11,
+     23
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/optimizer_battle_video",
+   "role": "background",
+   "supports": [
+    "lab:simulation/optimizer-race"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": false,
+    "year": false,
+    "url": false
+   },
+   "checkedBy": "사용자 제공 영상에서 옮김. 원 게시물 주소·게시일·작성자는 받지 못함",
+   "note": "경주 아이디어와 Adam 갱신식 표기만 참고, 지형·설정·걸음 수는 새로 계산"
+  }
+ },
+ {
+  "id": "kingma2015adam",
+  "type": "paper-conference",
+  "title": "Adam: A Method for Stochastic Optimization",
+  "author": [
+   {
+    "family": "Kingma",
+    "given": "Diederik P."
+   },
+   {
+    "family": "Ba",
+    "given": "Jimmy"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  },
+  "container-title": "International Conference on Learning Representations (ICLR)",
+  "URL": "https://arxiv.org/abs/1412.6980",
+  "lab": {
+   "work": "lab:work/kingma2015adam",
+   "role": "source",
+   "supports": [
+    "lab:method/adam"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "url": true
+   },
+   "checkedBy": "서지 정보 확인"
+  }
+ },
+ {
+  "id": "polyak1964",
+  "type": "article-journal",
+  "title": "Some methods of speeding up the convergence of iteration methods",
+  "author": [
+   {
+    "family": "Polyak",
+    "given": "Boris T."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1964
+    ]
+   ]
+  },
+  "container-title": "USSR Computational Mathematics and Mathematical Physics",
+  "volume": "4",
+  "issue": "5",
+  "page": "1-17",
+  "DOI": "10.1016/0041-5553(64)90137-5",
+  "lab": {
+   "work": "lab:work/polyak1964",
+   "role": "source",
+   "supports": [
+    "lab:method/momentum-sgd"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "url": false
+   },
+   "checkedBy": "서지 정보 확인"
+  }
+ },
+ {
+  "id": "ahn_optimization_3d_map",
+  "type": "webpage",
+  "title": "좌표축 위의 그릇 — 3D 지도로 본 모델 최적화",
+  "author": [
+   {
+    "family": "안",
+    "given": "상선"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "URL": "https://adminmrobo.github.io/optimization_3d_map/",
+  "accessed": {
+   "date-parts": [
+    [
+     2026,
+     11,
+     23
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/ahn_optimization_3d_map",
+   "role": "background",
+   "supports": [
+    "lab:method/gradient-descent"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "url": true
+   },
+   "checkedBy": "저자 본인 시리즈"
+  }
+ }
+]

@@ -1,0 +1,502 @@
+{
+ "version": "1.3",
+ "page": "index",
+ "nodes": [
+  {
+   "id": "lab:concept/tangent-slope",
+   "type": "Concept",
+   "label": {
+    "ko": "접선의 기울기",
+    "en": "Slope of the tangent"
+   },
+   "page": "index",
+   "anchor": "#p1",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "곡선의 한 점에 살짝 닿는 직선의 기울기. 그 점의 미분값이며 내리막 방향을 알려 준다."
+   }
+  },
+  {
+   "id": "lab:concept/rate-of-change",
+   "type": "Concept",
+   "label": {
+    "ko": "변화율",
+    "en": "Rate of change"
+   },
+   "page": "index",
+   "anchor": "#p2",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "x가 변할 때 y가 변하는 빠르기. 평균 변화율 Δy/Δx의 간격을 한없이 줄인 끝이 미분 dy/dx."
+   }
+  },
+  {
+   "id": "lab:concept/stationary-point",
+   "type": "Concept",
+   "label": {
+    "ko": "정지점 (기울기 0)",
+    "en": "Stationary point"
+   },
+   "page": "index",
+   "anchor": "#p3",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "기울기가 0인 자리. 양옆 기울기의 부호로 꼭대기(극대)·바닥(극소)을 가린다."
+   }
+  },
+  {
+   "id": "lab:concept/small-increment-approximation",
+   "type": "Concept",
+   "label": {
+    "ko": "작은 증분 근사",
+    "en": "Small-increment approximation"
+   },
+   "page": "index",
+   "anchor": "#p4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "조금 움직이면 Δy ≈ f′(x)·Δx. 움직임이 클수록 틀린 양이 빠르게 커진다."
+   }
+  },
+  {
+   "id": "lab:method/gradient-descent",
+   "type": "Method",
+   "label": {
+    "ko": "경사하강",
+    "en": "Gradient descent"
+   },
+   "page": "index",
+   "anchor": "#p4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "x ← x − η·f′(x). 기울기 반대쪽으로 작게 걷고 다시 기울기를 재는 일을 되풀이한다."
+   }
+  },
+  {
+   "id": "lab:concept/learning-rate",
+   "type": "Concept",
+   "label": {
+    "ko": "학습률 (보폭 η)",
+    "en": "Learning rate"
+   },
+   "page": "index",
+   "anchor": "#p4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "기울기에 곱해 한 걸음의 크기를 정하는 수. 작으면 느리고 크면 튀거나 달아난다."
+   }
+  },
+  {
+   "id": "lab:method/vanilla-sgd",
+   "type": "Method",
+   "label": {
+    "ko": "바닐라 SGD",
+    "en": "Vanilla SGD"
+   },
+   "page": "index",
+   "anchor": "#p5",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "관성이나 보폭 조절 없이 θ ← θ − η·g만 쓰는 기본 걸음법."
+   }
+  },
+  {
+   "id": "lab:method/momentum-sgd",
+   "type": "Method",
+   "label": {
+    "ko": "모멘텀 SGD",
+    "en": "Momentum SGD"
+   },
+   "page": "index",
+   "anchor": "#p5",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "v ← βv + g, θ ← θ − η·v. 앞 걸음 속도의 β배를 이어 받아 완만한 길에서 가속한다."
+   }
+  },
+  {
+   "id": "lab:method/adam",
+   "type": "Method",
+   "label": {
+    "ko": "Adam",
+    "en": "Adam"
+   },
+   "page": "index",
+   "anchor": "#p5",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "기울기의 평균 m̂과 제곱 평균 v̂로 θ ← θ − η·m̂/(√v̂+ε). 방향마다 보폭을 맞춘다."
+   }
+  },
+  {
+   "id": "lab:concept/ill-conditioned-valley",
+   "type": "Concept",
+   "label": {
+    "ko": "휘어진 골짜기 (방향마다 다른 가파름)",
+    "en": "Ill-conditioned curved valley"
+   },
+   "page": "index",
+   "anchor": "#p5",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "한 방향은 가파르고 다른 방향은 완만한 오차 지형. 바닐라 SGD가 느려지는 대표 상황."
+   }
+  },
+  {
+   "id": "lab:limitation/stationary-not-minimum",
+   "type": "Limitation",
+   "label": {
+    "ko": "기울기 0이 바닥이라는 보장은 없다",
+    "en": "Zero gradient is not a minimum"
+   },
+   "page": "index",
+   "anchor": "#p3",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "x³ − 3x + 3에서 x = −1은 기울기 0이지만 꼭대기다."
+   }
+  },
+  {
+   "id": "lab:limitation/large-step-divergence",
+   "type": "Limitation",
+   "label": {
+    "ko": "보폭이 크면 튀거나 달아난다",
+    "en": "Large steps oscillate or diverge"
+   },
+   "page": "index",
+   "anchor": "#p4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "η 0.3은 바닥 주변에서 흔들리고, η 0.4는 꼭대기를 넘어 끝없이 내려가는 쪽으로 달아난다."
+   }
+  },
+  {
+   "id": "lab:limitation/ranking-depends-on-terrain",
+   "type": "Limitation",
+   "label": {
+    "ko": "걸음법 순위는 지형과 보폭에 달렸다",
+    "en": "Optimizer ranking depends on landscape and step size"
+   },
+   "page": "index",
+   "anchor": "#duel",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "기본 설정에서 Adam은 휘어진·곧은 골짜기에서 1등, 둥근 그릇에서는 모멘텀이 1등."
+   }
+  },
+  {
+   "id": "lab:simulation/optimizer-race",
+   "type": "Simulation",
+   "label": {
+    "ko": "휘어진 골짜기 경주",
+    "en": "Curved-valley optimizer race"
+   },
+   "page": "index",
+   "anchor": "#p5",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "같은 출발·도착점에서 세 걸음법을 동시에 달리게 한 연습. 기본 설정 Adam 60 · 모멘텀 118 · 바닐라 430걸음."
+   }
+  },
+  {
+   "id": "lab:simulation/practice-room",
+   "type": "Simulation",
+   "label": {
+    "ko": "실전 연습장 — 순위 뒤집기",
+    "en": "Practice room: flip the ranking"
+   },
+   "page": "index",
+   "anchor": "#p6",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "지형 3개와 η·β·Adam η를 바꿔 미션 3개(보폭 맞추기·튕김 관찰·조건 바꾸기)를 푼다."
+   }
+  },
+  {
+   "id": "lab:question/adam-always-best",
+   "type": "Question",
+   "label": {
+    "ko": "Adam은 언제나 1등일까?",
+    "en": "Is Adam always the fastest?"
+   },
+   "page": "index",
+   "anchor": "#duel",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "family": "optimization",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "definition": {
+    "ko": "반례 하나(둥근 그릇)로 '언제나'가 깨진다. 결론에 지형 조건을 붙인다."
+   }
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/tangent-slope",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#p1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/rate-of-change",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/tangent-slope",
+   "anchor": "#p2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/tangent-slope",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/stationary-point",
+   "anchor": "#p3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/stationary-point",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/stationary-not-minimum",
+   "anchor": "#p3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/small-increment-approximation",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/gradient-descent",
+   "anchor": "#p4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/gradient-descent",
+   "p": "lab:broader",
+   "o": "lab:topic/gradient-descent",
+   "anchor": "#p4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/gradient-descent",
+   "p": "lab:relatedTo",
+   "o": "lab:concept/learning-rate",
+   "anchor": "#p4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/learning-rate",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/large-step-divergence",
+   "anchor": "#p4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/vanilla-sgd",
+   "p": "lab:broader",
+   "o": "lab:method/gradient-descent",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/momentum-sgd",
+   "p": "lab:broader",
+   "o": "lab:topic/momentum-adam",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/adam",
+   "p": "lab:broader",
+   "o": "lab:topic/momentum-adam",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/momentum-sgd",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/vanilla-sgd",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/adam",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/momentum-sgd",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/ill-conditioned-valley",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/optimizer-race",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/adam",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/optimizer-race",
+   "anchor": "#p5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:simulation/practice-room",
+   "p": "lab:raises",
+   "o": "lab:question/adam-always-best",
+   "anchor": "#p6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:question/adam-always-best",
+   "p": "lab:addressedBy",
+   "o": "lab:limitation/ranking-depends-on-terrain",
+   "anchor": "#duel",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/adam",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ranking-depends-on-terrain",
+   "anchor": "#duel",
+   "confidence": "high"
+  }
+ ]
+}
