@@ -58,10 +58,10 @@ refs=[
   "lab":{"work":"lab:work/ahn_optimization_3d_map","role":"background","supports":["lab:method/gradient-descent"],"locs":[],"verified":{"title":True,"author":True,"year":True,"url":True},"checkedBy":"저자 본인 시리즈"}},
 ]
 meta={"title":"최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습","series":"최적화 연습실","number":"1","creator":[{"name":"안상선","role":"author","affiliation":"(주)M-Robo"}],"contributor":[{"name":"AI 보조 제작","role":"assistant"}],
- "date":"2026-11-23","version":"1.0","language":["ko"],"license":"","url":"https://adminmrobo.github.io/optimization_test_lab/",
+ "date":"2026-11-23","version":"1.1","language":["ko"],"license":"","url":"https://adminmrobo.github.io/optimization_test_lab/",
  "about":["lab:concept/tangent-slope","lab:method/gradient-descent","lab:method/adam","lab:limitation/ranking-depends-on-terrain"],
  "basedOn":["infinity_four_meanings","optimizer_battle_video","kingma2015adam","polyak1964"],"educationalLevel":"입문","learningResourceType":"interactive explainer","registry":"KG_00_registry 0.2",
- "suggestedCitation":"안상선 (2026). 최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습. v1.0."}
+ "suggestedCitation":"안상선 (2026). 최적화 연습실 — 미공개 X1·X2·X3의 몰래 연습. v1.1."}
 for n,o in (('kg_0.json',kg),('refs_0.json',refs),('meta_0.json',meta)):
     json.dump(o,open(os.path.join(B,n),'w'),ensure_ascii=False,indent=1)
 print(len(nodes),'nodes',len(edges),'edges')

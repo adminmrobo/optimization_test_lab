@@ -20,6 +20,7 @@ const V=OM.TER.valley,R=OM.all(V);eq('X1 걸음',R.x1.steps,430);eq('X2 걸음',
 const sg=e=>OM.race(V,'sgd',{eta:e});eq('미션1 η0.08',sg(0.08).steps,322);eq('미션1 η0.09',sg(0.09).steps,286);eq('미션1 η0.07 실패',sg(0.07).steps>350,true);eq('미션1 η0.10 도착 못 함',sg(0.10).steps,null);
 eq('미션2 β0.9 η0.10 튕김',OM.race(V,'mom',{eta:0.10,beta:0.9}).out,true);eq('미션2 기본은 안 튕김',R.x2.out,false);
 const Bw=OM.TER.bowl;eq('미션3 그릇 X3 기본',OM.race(Bw,'adam',{eta:0.15}).steps,44);eq('미션3 그릇 X1 η0.10',OM.race(Bw,'sgd',{eta:0.10}).steps,38);eq('미션3 그릇 X1 η0.06 실패',OM.race(Bw,'sgd',{eta:0.06}).steps>44,true);
+eq('β 0.9 · η 0.06 모멘텀',OM.race(V,'mom',{eta:0.06,beta:0.9}).steps,68);eq('β 0.9 · η 0.08 모멘텀',OM.race(V,'mom',{eta:0.08,beta:0.9}).steps,17);
 // 대결: 기본 설정으로 세 지형
 const rk=k=>OM.rank(OM.all(OM.TER[k]))[0];eq('대결 골짜기 1등',rk('valley'),'x3');eq('대결 그릇 1등',rk('bowl'),'x2');eq('대결 곧은 골짜기 1등',rk('ravine'),'x3');
 const Bo=OM.all(Bw);eq('그릇 X1',Bo.x1.steps,64);eq('그릇 X2',Bo.x2.steps,11);

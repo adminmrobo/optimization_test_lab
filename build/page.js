@@ -12,7 +12,6 @@ var DLG={
  pro:[["asst","asst_e09","밤 11시인데 연구실 불이 켜져 있어요. 누가 남아 있나 봐요."],
    ["sia","sia_e04","화이트보드 앞에 셋이나 있어요! 실루엣만 보이는데… 굽은 골짜기를 그려 놓고 공을 굴리고 있어요."],
    ["x1","x1_e13","쉿. 아직 정식 공개 전이라서요. 미분의 네 가지 뜻부터 하나씩 연습하는 중이에요."],
-   ["x3","x3_e01","다 연습하면 골짜기 경주도 해요. 나는 Adam 맡았어요!"],
    ["moa","moa_e24","잠깐만요, 저 셋… 우리보다 잘하는 거 아니에요? 저 식을 손으로 풀고 있어요."],
    ["x2","x2_e09","숨어서 보지 말고 같이 해요. 처음부터 천천히 보여 줄게요."]],
  map:[["doc","doc_e07","공장에서 기계 설정값을 고칠 때, 지금 값에서 어느 쪽으로 얼마나 돌릴지 어떻게 정할까요? X1·X2·X3의 연습은 그 질문의 답을 네 조각으로 나눈 거예요."],
@@ -43,8 +42,7 @@ var DLG={
  p3z:[["doc","doc_e16","업무 말로 바꾸면 \"증가가 멈췄다\"는 신호는 정점일 수도, 바닥일 수도 있다는 뜻입니다. 기울기 0은 멈출 후보이지 결론이 아니에요."]],
  p4a:[["doc","doc_e07","처음 가는 동네에서 길을 물었더니 \"저쪽\"이라고만 합니다. 얼마나 걸어가야 할까요?"],
    ["x1","x1_e16","조금만요! 조금 움직이면 높이 변화가 \"기울기 × 움직인 양\"과 거의 같거든요."],
-   ["x2","x2_e16","그 근사가 맞는 동안만 믿고 한 걸음 가요. 그리고 다시 기울기를 재요."],
-   ["x3","x3_e01","그게 경사하강이에요! x ← x − η × 기울기."],
+   ["x3","x3_e01","그 근사가 맞는 동안만 믿고 한 걸음 가고, 다시 기울기를 재요. 그게 경사하강이에요! x ← x − η × 기울기."],
    ["sia","sia_e24","셋이서 식을 이어 말했어요… 연습을 얼마나 한 거예요?"]],
  p4t:[["doc","doc_e09","(나)에서 보폭 η를 0.1부터 0.4까지 차례로 눌러 보세요. 걸음이 어떻게 달라지나요?"],
    ["robo","robo_e01","보폭이 클수록 빨리 도착하지! 0.4가 최고야."],
@@ -204,6 +202,9 @@ $('#b5r').onclick=function(){play5=false;$('#b5p').textContent='▶ 경주 시�
 var TK=['valley','bowl','ravine'],DESC={valley:'휘어진 골짜기 — 가로질러서는 가파르고 바닥길을 따라서는 완만하다. 연습 5와 같은 지형.',bowl:'둥근 그릇 — 어느 방향이든 가파름이 같다. 바닥이 출발점에서 곧장 보인다.',ravine:'곧고 좁은 골짜기 — 위아래로는 아주 가파르고, 가로로는 아주 완만하다(가파름 차이 100배).'};
 var S6={ter:'valley',eta:OM.DEF.eta,beta:OM.DEF.beta,etaA:OM.DEF.etaA},touched=false,PASS={},R6;
 var v6=V($('#cv6'),function(){terrain($('#cv6'),S6.ter,R6,null,{lw:2.4,dot:6});});
+var v6b=V($('#cv6b'),function(){if(!R6)return;var T=OM.TER[S6.ter],mx=1;['x1','x2','x3'].forEach(function(k){mx=Math.max(mx,R6[k].path.length);});
+  U.plot($('#cv6b'),{xr:[0,Math.max(20,mx)],yr:[1e-3,100],logy:true,yt:[0.001,0.01,0.1,1,10,100],yf:function(t){return String(t);},xt:[0,Math.round(mx/4),Math.round(mx/2),Math.round(3*mx/4),mx],xl:'걸음',yl:'오차 (로그)',
+    series:['x1','x2','x3'].map(function(k){return {pts:R6[k].path.map(function(p,i){return [i,T.f(p[0],p[1])];}),color:rc(k),width:2,name:RN[k].split(' · ')[0],ndy:k==='x1'?-12:k==='x2'?-24:-36};}),stamp:'설명용 예시'});});
 function nm(k){return RN[k];}
 function stepTxt(r){return r.steps?r.steps+'걸음':r.out?'튕겨 나감':'800걸음 안에 못 옴';}
 function up6(){R6=OM.all(OM.TER[S6.ter],{eta:S6.eta,beta:S6.beta,etaA:S6.etaA});var ord=OM.rank(R6);
@@ -222,11 +223,11 @@ function up6(){R6=OM.all(OM.TER[S6.ter],{eta:S6.eta,beta:S6.beta,etaA:S6.etaA});
     if(S6.ter==='valley'&&R6.x1.steps&&R6.x1.steps<=350)PASS.m1='통과! η = '+S6.eta.toFixed(2)+'에서 X1 '+R6.x1.steps+'걸음. 0.10으로 올리면 어떻게 되는지도 보세요.';
     if(R6.x2.out)PASS.m2='통과! (β '+S6.beta.toFixed(2)+', η '+S6.eta.toFixed(2)+') 관성이 크면 빠르지만, 멈춰야 할 곳을 지나칩니다.';
     if(S6.ter==='bowl'&&R6.x1.steps&&(!R6.x3.steps||R6.x1.steps<R6.x3.steps))PASS.m3='통과! 그릇에서 X1 '+R6.x1.steps+'걸음 vs X3 '+stepTxt(R6.x3)+'. 지형이 바뀌면 순위도 바뀝니다.';}
-  var MS=[['m1','보폭 맞추기 — 휘어진 골짜기에서 X1(바닐라)을 350걸음 안에 도착시키기','힌트: 보폭 η를 조금씩 키워 보세요. 너무 키우면 오히려 못 갑니다.'],
+  var MS=[['m1','보폭 맞추기 — 휘어진 골짜기에서 X1(바닐라)을 350걸음 안에 도착시키기','힌트: 보폭 η를 0.01씩 키워 보세요. 0.10부터는 오히려 못 갑니다 — 오른쪽 오차 곡선이 톱니처럼 오르내리면 X1이 바닥 주변을 지그재그로 맴도는 중이에요.'],
     ['m2','함정 관찰 — X2(모멘텀)를 튕겨 나가게 만들기','힌트: 관성 β와 보폭 η를 함께 키워 보세요. 무엇이 같이 커질 때 위험할까요?'],
     ['m3','조건 바꾸기 — 둥근 그릇에서 X1이 X3보다 먼저 도착하게 하기','힌트: 그릇은 방향마다 가파름이 같습니다. 그러면 Adam의 장점이 남을까요?']];
   $('#mis6').innerHTML=MS.map(function(m,i){var p=PASS[m[0]];return '<li class="'+(p?'pass':'')+'"><span class="ck" aria-hidden="true">'+(p?'✓':i+1)+'</span><div><b>미션 '+(i+1)+'</b> '+m[1]+'<small>'+(p||m[2])+'</small></div></li>';}).join('');
-  v6.dirty=true;}
+  v6.dirty=true;v6b.dirty=true;}
 function setTer(k){S6.ter=k;$$('#tabs6 .bt').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.k===k));});up6();}
 $('#tabs6').innerHTML=TK.map(function(k){return '<button class="bt" type="button" data-k="'+k+'" aria-pressed="'+(k===S6.ter)+'">'+OM.TER[k].name+'</button>';}).join('');
 $$('#tabs6 .bt').forEach(function(b){b.onclick=function(){touched=true;setTer(b.dataset.k);try{history.replaceState(null,'','#'+b.dataset.k);}catch(e){}};});
@@ -249,7 +250,7 @@ U.Duel({el:'#duel',run:function(){return TK.map(function(k){var R=OM.all(OM.TER[
     var b=res.filter(function(r){return r.k==='bowl';})[0].R;
     $('#d-say').innerHTML=[U.say('fly','fly_e12','둥근 그릇에서는 X2(모멘텀)가 '+b.x2.steps+'걸음으로 1등이야. Adam은 한 걸음이 늘 0.15 안팎이라 거리 5를 가는 데 '+b.x3.steps+'걸음이 들었어. 반례 하나면 "언제나"는 깨져.'),
       U.say('robo','robo_e15','…"언제나"는 취소. "Adam은 휘어지고 방향마다 가파름이 다른 지형에 강하다"로 고칠게.',true),
-      U.say('doc','doc_e16','좋은 수정이에요. 결론에 조건을 붙이는 것, 그게 연구예요. 남은 두 지형에서는 Adam이 1등이었다는 것도 함께 적어 두세요.')].join('');
+      U.say('doc','doc_e16','좋은 수정이에요. 결론에 조건을 붙이는 것, 그게 연구예요. 남은 두 지형에서는 Adam이 1등이었다는 것, 그리고 관성 β를 흔히 쓰는 0.9로 올리면 휘어진 골짜기에서도 모멘텀이 68걸음으로 Adam(60걸음)에 바짝 따라붙는다는 것도 함께 적어 두세요.')].join('');
     $('#d-score').textContent='승자: 초파리 연구원 (Adam 1등 '+adamWins+'/'+res.length+', 반례 '+counter+'개)';
     $('#d-pred').textContent=pred?(pred==='fly'?'예측 적중!':'예측 빗나감 — 반례 하나면 충분해요'):'예측 없이 결과를 봤어요';},
   reset:function(){U.setMood($('#d-fly'),'fly_e09');U.setMood($('#d-robo'),'robo_e16');}});
